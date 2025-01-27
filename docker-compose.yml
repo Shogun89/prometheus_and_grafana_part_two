@@ -1,0 +1,18 @@
+services:
+  prometheus:
+    extends:
+      file: monitoring/compose.monitoring.yml
+      service: prometheus
+    networks:
+      - monitoring-network
+
+  grafana:
+    extends:
+      file: monitoring/compose.monitoring.yml
+      service: grafana
+    networks:
+      - monitoring-network
+
+networks:
+  monitoring-network:
+    driver: bridge
